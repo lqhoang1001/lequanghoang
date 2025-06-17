@@ -1,63 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lê Quang Hoàng Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lê Quang Hoàng / Software Engineer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <header>
-    <h1>Lê Quang Hoàng / Software Engineer</h1>
+    <div class="logo">Lê Quang Hoàng / Software Engineer</div>
     <nav>
-      <a id="toggleIntro">ABOUT ME</a>
-      <a href="#projects">PROJECTS</a>
-      <a href="#contact">CONTACT</a>
-      <a id="toggleBlog">BLOG</a>
+      <ul>
+        <li><a href="#intro">Intro</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#blog">Blog</a></li>
+      </ul>
     </nav>
   </header>
 
-  <div class="main">
-    <div class="container">
-      <div class="card" id="profileCard">
-        <img src="avatar.jpg" alt="Hoang" />
+  <main>
+    <section id="intro" class="active fade-section">
+      <div class="card">
+        <img src="avatarr.jpg" alt="Avatar" />
         <h2>Lê Quang Hoàng</h2>
         <p>Software Engineering</p>
-        <div class="social">
-          <a href="https://www.facebook.com/lqhoang1001/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/_lqhoang_/" target="_blank"><i class="fab fa-instagram"></i></a>
-          <a href="https://zalo.me/0703026269" target="_blank"><i class="fas fa-comment-dots"></i></a>
-          <a href="mailto:lequanghoang1001@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+        <div class="social-icons">
+          <a href="https://facebook.com/lqhoang1001" target="_blank"><i class="fab fa-facebook"></i></a>
+          <a href="https://zalo.me/0703026269" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
+          <a href="https://instagram.com/_lqhoang_" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="mailto:lequanghoang1001@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
       </div>
+    </section>
 
-      <div class="intro show" id="contact">
-        <h1>Hello</h1>
-        <p>I'm a Capricorn — ambitious, disciplined, and goal-oriented...</p>
-        <div id="resumeInfo">
-          <strong>Full Name:</strong> Le Quang Hoang<br />
-          <strong>Birthday:</strong> 10/01/2001<br />
-          <strong>University:</strong> Hoa Sen University - Software Engineering<br />
-          <strong>Hobbies:</strong> Cheerleading, Fashion, Web Programming, Café hopping with friends<br /><br />
-          <strong>Objective:</strong> To obtain a position as a web developer...<br />
-          <strong>Education:</strong> Bachelor of Software Engineering, Hoa Sen University.<br />
-          <strong>Languages:</strong> English (Intermediate), Vietnamese (Native).<br />
-          <strong>Skills:</strong> HTML, CSS, JavaScript, C/C++, GitHub, UI/UX basics.<br />
-          <strong>Achievements:</strong> IELTS 5.0, Typing speed 80 WPM.
-        </div>
+    <section id="about" class="fade-section">
+      <div class="content">
+        <h2>About Me</h2>
+        <p>Mình là sinh viên ngành Kỹ thuật phần mềm, đam mê lập trình, thích học hỏi và mong muốn phát triển các dự án cá nhân.</p>
       </div>
+    </section>
 
-      <div class="blog" id="blog">
+    <section id="projects" class="fade-section">
+      <div class="content">
+        <h2>Projects</h2>
+        <p>Chưa có dự án cụ thể. Nếu bạn muốn góp ý hoặc hướng dẫn mình nên làm gì, rất hoan nghênh!</p>
+      </div>
+    </section>
+
+    <section id="contact" class="fade-section">
+      <div class="content">
+        <h2>Contact</h2>
+        <p>Email: lequanghoang1001@gmail.com</p>
+        <p>Zalo: 0703026269</p>
+      </div>
+    </section>
+
+    <section id="blog" class="fade-section">
+      <div class="content">
         <h2>Blog</h2>
-        <p>Xin chào, tôi là Lê Quang Hoàng – Chàng Ma Kết sống hết mình</p>
-        <!-- Nội dung blog giữ nguyên -->
-        <!-- ... -->
+        <p>Sắp có bài viết chia sẻ về quá trình học lập trình, cheerleading và cuộc sống sinh viên tại HSU.</p>
       </div>
-    </div>
-  </div>
+    </section>
+  </main>
 
-  <script src="script.js"></script>
+  <script>
+    const navLinks = document.querySelectorAll("nav a");
+    const sections = document.querySelectorAll(".fade-section");
+
+    navLinks.forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        const targetId = link.getAttribute("href").substring(1);
+        sections.forEach(section => {
+          section.classList.remove("active");
+        });
+        document.getElementById(targetId).classList.add("active");
+      });
+    });
+  </script>
 </body>
+
 </html>
